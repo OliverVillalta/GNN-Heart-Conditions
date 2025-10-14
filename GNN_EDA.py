@@ -6,8 +6,8 @@ from collections import Counter
 import h5py as h5
 from scipy.fft import fft, ifft
 
-#heart_data = pd.read_csv('C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\records\\metadata.csv')
-heart_data = pd.read_csv('C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\records\\prepared_code.csv')
+#heart_data = pd.read_csv('/')
+heart_data = pd.read_csv('/')
 #NOTICE ---> This part was made to simply observe the demographics of the dataset. The part after this one is for the modification of the dataset so that all data is within 
 # one newly created csv file to prepare for 'PyTorch Geometric. - 01/22/2025
 
@@ -134,10 +134,10 @@ prepared_data['Reading'] = prepared_data.apply(add_row, axis=1)
 prepared_data = prepared_data.drop(columns=['AHA_Code'])
 print(prepared_data.head(10))
 
-prepared_data.to_csv('C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\records\\prepared_code.csv', index=False) 
+prepared_data.to_csv('/', index=False) 
 
 
-final_data = pd.read_csv('C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\records\\prepared_code.csv')
+final_data = pd.read_csv('/')
 final_data['Code_1'] = final_data['Code_1'].astype(int)
 final_data['Code_2'] = final_data['Code_1'].astype(int)
 final_data['Code_3'] = final_data['Code_1'].astype(int)
@@ -162,7 +162,7 @@ def denoise_signal(ecg_signal, fs, low_cutoff, high_cutoff):
 fs = 500 
 low_cutoff = 0.5
 high_cutoff = 40
-with h5.File(f'C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\records\\A{2:05d}.h5', 'r') as f:
+with h5.File(f'/', 'r') as f:
     signal = f['ecg'][()]
     for i in range(12):
         #denoised = denoise_signal(signal[i], fs, low_cutoff, high_cutoff)
@@ -170,3 +170,4 @@ with h5.File(f'C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\reco
     plt.title('Raw ECG Signal')
     plt.tight_layout()
     plt.show()
+
