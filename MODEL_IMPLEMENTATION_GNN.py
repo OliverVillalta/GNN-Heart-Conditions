@@ -20,7 +20,7 @@ import ast
 
 # Break data into a dictionary format (THIS WAS FOR WHEN I TRIED TO PAD ALL ENTRIES BUT KEPT GETTING ISSUES WITH COMPUTATIONAL POWER)
 tmpdata_dict = {}
-metadata = pd.read_csv('C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\records\\prepared_code.csv')
+metadata = pd.read_csv('/')
 length_list = (metadata['N'].unique()).tolist()
 length_list.sort()
 for n in length_list:
@@ -198,7 +198,7 @@ def train(model, loader, optimizer, device, scaler, class_weights):
         
     return total_loss / len(loader)
 
-# Useles...
+# Useless... ran out of time trying to experiment with other weights
 def compute_class_weights(dataset, device='cpu'):
     total_samples = len(dataset)
     class_counts = torch.zeros(num_classes, device=device)
@@ -211,7 +211,7 @@ def compute_class_weights(dataset, device='cpu'):
     class_weights = total_samples / (num_classes * (class_counts + 1e-6))
     return class_weights
 
-base_path = "C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\records"
+base_path = "/"
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 scaler = GradScaler()
 
@@ -447,3 +447,4 @@ plt.grid(True)
 
 plt.tight_layout()
 plt.show()
+
