@@ -6,7 +6,6 @@ from collections import Counter
 import h5py as h5
 from scipy.fft import fft, ifft
 
-#heart_data = pd.read_csv('/')
 heart_data = pd.read_csv('/')
 #NOTICE ---> This part was made to simply observe the demographics of the dataset. The part after this one is for the modification of the dataset so that all data is within 
 # one newly created csv file to prepare for 'PyTorch Geometric. - 01/22/2025
@@ -85,7 +84,7 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 
-aha_coding = pd.read_csv('C:\\Users\\School Profile\\Documents\\Senior Project Thesis\\records\\code.csv')
+aha_coding = pd.read_csv('code.csv')
 
 def remove_modifier(series):
 
@@ -170,4 +169,5 @@ with h5.File(f'/', 'r') as f:
     plt.title('Raw ECG Signal')
     plt.tight_layout()
     plt.show()
+
 
